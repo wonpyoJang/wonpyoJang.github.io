@@ -8,30 +8,27 @@ categories: GCP, Hyperledger Fabric
 
 ## GCP 인스턴스 스펙
 이 포스트에서 사용할 GPU Compute Engine VM 인스턴스의 스펙은 다음과 같다.
-```
-    + GCP Compute Engine N1 (vCPU 1개, 3.75GB 메모리, __HDD 30GB__, Cent)
-        - vCPU 1개
-        - 3.75GB 메모리
-        - __HDD 30GB__
-        - __CentOS 7__
-```
++ GCP Compute Engine N1 (vCPU 1개, 3.75GB 메모리, __HDD 30GB__, Cent)
+- vCPU 1개
+- 3.75GB 메모리
+- __HDD 30GB__
+- __CentOS 7__
+
 
 ## 프로그램 버전 정보
 이 포스트에서 사용할 프로그램 버전 정보는 아래와 같다.
-```
-    + CentOS 7
-    + curl 7.29.0
-    + docker 19.03.3 
-	+ docker-compose 1.24.1 
-	+ go 1.12.10 
-	+ nodejs 8.9.4 
-	+ npm 5.6.0 
-	+ python 2.7.5 
-	+ git 1.8.3.1 
-	+ gcc 4.8.5 
-	+ g++ 4.8.5 
-	+ jq 1.5
-```
++ CentOS 7
++ curl 7.29.0
++ docker 19.03.3 
++ docker-compose 1.24.1 
++ go 1.12.10 
++ nodejs 8.9.4 
++ npm 5.6.0 
++ python 2.7.5 
++ git 1.8.3.1 
++ gcc 4.8.5 
++ g++ 4.8.5 
++ jq 1.5
 
 ## 도커 설치
 yum package manager를 활용해 docker를 설치한다.
@@ -71,6 +68,8 @@ $ sudo systemctl start docker
 ```
 $ sudo docker run hello-world
 ```
+
+
 
 
 
