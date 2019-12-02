@@ -265,7 +265,32 @@ export PATH=~/fabric_samples/bin:$PATH
 $ source /etc/profile
 ```
 
+## Node.js SDK 설치
 
+Node.js SDK는 Node.js로 체인코드를 작성할 수 있게 해주는 툴이다.
 
+```
+$ npm install --save fabric-contract-api
+$ npm install --save fabric-shim
+```
+
+## 설치 확인
+
++ byfn 예제 동작 확인
+
+```
+$ cd ~
+$ cd fabric-samples/first-network/
+$ ./byfn.sh generate
+$ ./byfn.sh up -l node
+```
++ reference
+Hyperledger fabric prerequisite : https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html
+docker 설치(Cent OS) : https://docs.docker.com/install/linux/docker-ce/centos/
+docker compose 설치 : https://docs.docker.com/compose/install/
+go 설치 : https://golang.org/doc/install
+nodejs 설치 : https://github.com/nodejs/help/wiki/Installation
+byfn 예제 : https://hyperledger-fabric.readthedocs.io/en/release-1.4/build_network.html
+balance transfer 예제 : https://github.com/hyperledger/fabric-samples/tree/release-1.4/balance-transfer
 
 
