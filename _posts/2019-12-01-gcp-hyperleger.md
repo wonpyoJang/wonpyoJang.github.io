@@ -30,7 +30,7 @@ categories: GCP, Hyperledger Fabric
 
 ## 도커 설치
 
-#### Dependency 설치
++ Dependency 설치
 yum을 이용해 다음 프로그램을 설치한다.
 ```
 $ sudo yum install -y yum-utils \
@@ -41,7 +41,7 @@ cf) yum-utils : yum 저장소를 관리하기 위한 도구
     device-mapper-persistent-data : 가상화를 위한 도구. docker 설치에 필요
     lvm2 : Logical Volume Manager, docker 설치에 필요.
 
-#### 저장소 설정
++ 저장소 설정
 도커 저장소를 yum 저장소에 추가한다.
 ```
 $ sudo yum-config-manager \
@@ -49,23 +49,39 @@ $ sudo yum-config-manager \
 https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-#### 도커 엔진 설치
++ 도커 엔진 설치
 ```
 $ sudo yum install docker-ce docker-ce-cli containerd.io [--nobest]
 ```
 cf) dcoker-ce : Docker Community Edition
     docker-ce-cli : Docker Community Edition CLI
 
-#### 도커 실행
++ 도커 실행
 ```
 $ sudo systemctl start docker
 ```
 
-#### 도커 설치 확인
++ 도커 설치 확인
 ```
 $ sudo docker run hello-world
 ```
 
+## docker-compose 설치
+
++ docker-compose 1.24.1 다운로드
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
++ 실행권한 추가
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
++ 설치확인
+```
+$ docker-compose --version
+```
 
 
 
