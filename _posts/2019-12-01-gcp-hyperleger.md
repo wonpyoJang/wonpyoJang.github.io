@@ -223,6 +223,49 @@ $ sudo ln -s /usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin/npx /usr/bin/npx
 $ npm install npm@5.6.0 -g
 ```
 
+## 하이퍼레저 패브릭 설치
+
++ 깃 설치
+
+```
+$ sudo yum -y install git
+```
+
++ 현재 접속중인 계정에 도커 사용 권한 주기
+
+```
+$ sudo usermod -aG docker $USER
+```
+
++ 도커 재시작
+
+```
+$ sudo service docker restart
+```
+
++ 새 콘솔창을 연다.
+
++ Hyperledger Fabric 1.4.3 다운로드
+
+```
+$ sudo curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.3 1.4.3 0.4.15
+```
+
++ 환경변수 설정
+
+/etc/profile 에 다음 내용 추가
+
+```
+export PATH=~/fabric_samples/bin:$PATH
+```
+
+변경 내용 적용
+
+```
+$ source /etc/profile
+```
+
+
 
 
 
