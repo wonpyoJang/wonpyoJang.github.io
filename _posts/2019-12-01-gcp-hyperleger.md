@@ -12,7 +12,6 @@ categories: GCP, Hyperledger Fabric
 - __HDD 30GB__
 - __CentOS 7__
 
-
 ## 프로그램 버전 정보
 이 포스트에서 사용할 프로그램 버전 정보는 아래와 같다.
 + CentOS 7
@@ -28,10 +27,13 @@ categories: GCP, Hyperledger Fabric
 + g++ 4.8.5 
 + jq 1.5
 
+---
+
 ## 도커 설치
 
 + Dependency 설치
 yum을 이용해 다음 프로그램을 설치한다.
+
 ```
 $ sudo yum install -y yum-utils \
 device-mapper-persistent-data \
@@ -83,8 +85,143 @@ sudo chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
+---
 
+## Go 설치
 
++ wget 설치
+```
+$ sudo yum install wget
+```
+
++ 실행파일 다운로드
+```
+$ wget https://dl.google.com/go/go1.12.10.linux-amd64.tar.gz
+```
+
++ 압축해제
+```
+$ sudo tar -C /usr/local -xzf go1.12.10.linux-amd64.tar.gz
+```
+
++ /etc/profile에 아래 내용 추가
+```
+sudo vi /etc/profile
+```
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+
++ 환경변수 적용 및 확인
+```
+$ source /etc/profile
+$ echo $PATH
+```
+
++ go 설치 확인
+hello.go 생성
+
+```
+$ mkdir -p go/src/hello
+$ cd go/src/hello
+$ vi hello.go
+```
+
+아래 내용 입력
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Printf("hello, world\n")
+}
+```
+
+빌드 테스트
+
+```
+$ go build
+$ ./hello
+```
+
++ GOPATH 추가
+    
+```
+$ cd ~
+$ vi ~/.bashrc
+```
+
+아래 내용 입력
+
+```
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+```
+
+## Node.js 설치
+
++ 실행 파일 다운로드
+
+```
+$ wget https://nodejs.org/download/release/v8.9.4/node-v8.9.4-linux-x86.tar.xz
+```
+
++ 설치 폴더 생성
+
+```
+$ sudo mkdir -p /usr/local/lib/nodejs
+```
+
++ 압축 해제 및 설치
+
+```
+$ sudo tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /usr/local/lib/nodejs 
+```
+
++ 환경 변수 설정
+
+/etc/profile 에 아래 내용 입력
+
+```
+$ sudo vi /etc/profile
+```
+
+```
+VERSION=v8.9.4
+DISTRO=linux-x64
+export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+```
+
+환경변수 적용
+
+```
+source /etc/profile
+```
+
++ 설치 확인
+
+```
+$ node -v
+$ npm version
+$ npx -v
+```
+
++ 심볼릭 링크 생성
+
+```
+$ sudo ln -s /usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin/node /usr/bin/node
+$ sudo ln -s /usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin/npm /usr/bin/npm
+$ sudo ln -s /usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin/npx /usr/bin/npx
+
+```
+
++ npm 다운그레이드 ?
+
+```
+$ npm install npm@5.6.0 -g
+```
 
 
 
